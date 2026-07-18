@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+  /* Brand accent scale (drives every purple- and indigo- utility class) */
+  --pms-accent-purple-50:  245 243 255;
+  --pms-accent-purple-100: 237 233 254;
+  --pms-accent-purple-200: 221 214 254;
+  --pms-accent-purple-300: 196 181 253;
+  --pms-accent-purple-400: 167 139 250;
+  --pms-accent-purple-500: 139 92 246;
+  --pms-accent-purple-600: 124 58 237;
+  --pms-accent-purple-700: 109 40 217;
+  --pms-accent-purple-800: 91 33 182;
+  --pms-accent-purple-900: 76 29 149;
+
+  --pms-accent-indigo-400: 192 132 252;
+  --pms-accent-indigo-500: 168 85 247;
+  --pms-accent-indigo-600: 147 51 234;
+  --pms-accent-indigo-700: 126 34 206;
+  --pms-accent-indigo-800: 107 33 168;
+
+  /* One-off accent used only for the stat-card hover border */
+  --pms-accent-stat-hover: #a78bfa;
+
+  /* Dark surface palette (page/panel/card backgrounds + borders) */
+  --pms-bg-void:        #0a0518;  /* page canvas — darkest layer */
+  --pms-bg-surface:     #1f1a42;  /* navbar / sidebar / primary cards */
+  --pms-bg-surface-alt: #1a1640;  /* secondary cards / alt table rows */
+  --pms-bg-inset:       #0f0a1e;  /* inputs, wells, recessed panels */
+  --pms-bg-header:      #231d4d;  /* table headers, secondary surfaces */
+  --pms-border:         #2d265e;  /* primary hairline border color */
+  --pms-bg-modal:       #181432;  /* modal / dropdown backgrounds */
+  --pms-bg-hover:       #211a4a;  /* row/item hover backgrounds */
+  --pms-bg-deep-2:      #141026;
+  --pms-bg-deep-3:      #1a1540;
+  --pms-bg-deep-4:      #0f0c2e;
+  --pms-bg-deep-5:      #1b173a;
+  --pms-bg-deep-6:      #1a1638;
+  --pms-bg-dropdown:    #2a2450;
+}
+
+body {
+    background-color:white; /* Fills gaps with your dark theme */
+  }
+input[type="date"] {
+  color-scheme: dark;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.85;
+  filter: invert(1);
+}
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+/* Themed scrollbar — matches the app's dark surface + accent palette
+   instead of the browser default, and follows along automatically if the
+   theme tokens above are ever changed (e.g. purple -> another color). */
+* {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: rgb(var(--pms-accent-purple-700)) var(--pms-bg-void); /* Firefox */
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--pms-bg-void);
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(var(--pms-accent-purple-700));
+  border-radius: 999px;
+  border: 2px solid var(--pms-bg-void);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(var(--pms-accent-purple-500));
+}
